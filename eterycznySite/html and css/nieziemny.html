@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="nieziemnyCSS.css">
+    <link rel="stylesheet" href="forPage2Swiper.css">
+    <title>Nieziemski</title>
+</head>
+<body>
+    <!-- Abracadabra popup div -->
+    <div class="expandingDiv" id="popup">
+        <div class="carousel">
+            <div class="additionalDiv">
+
+                <!-- Radio buttons -->
+                <input class="radioInput" type="radio" name="radioButton" id="radioButton1" checked>
+                <input class="radioInput" type="radio" name="radioButton" id="radioButton2">
+                <input class="radioInput" type="radio" name="radioButton" id="radioButton3">
+                <!-- Radio buttons end-->
+
+
+
+                <div class="carouselImg displayed">
+                    <!-- something inside -->
+                </div>
+                <div class="carouselImg">
+                    <!-- something inside -->
+                </div>
+                <div class="carouselImg">
+                    <!-- something inside -->
+                </div>
+
+
+
+                <!-- manual Nav -->
+                <div class="manualNav">
+                    <label for="radioButton1" class="manualBtn" ></label>
+                    <label for="radioButton2" class="manualBtn"></label>
+                    <label for="radioButton3" class="manualBtn"></label>
+                </div>
+                <!-- manual Nav end-->
+
+
+            </div>
+            <div class="actions">
+                <button id="prev"></button>
+                <button id="next"></button>
+            </div>
+        </div>
+        <article class="labelSegment">
+            <h2>Title</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                Harum dolorum atque animi assumenda veniam, 
+                laborum accusamus? Odit aperiam, provident consequuntur quasi 
+                nisi, eos deserunt impedit ea laborum itaque accusamus error.</p>
+            <p>price</p>
+            <a href="#">buy now</a>
+        </article>
+    </div>
+    <!-- end of abracadabra div -->
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    <div class="landing" id="blur">
+        <!-- the nieziemny writing in yellow in the backgorund -->
+        <section class="leftLabelLrg d-flex justify-content-start">
+            <p class="d-flex justify-content-start">nieziemski</p>
+        </section>
+        <!-- the nieziemny writing in yellow in the backgorund -->
+
+
+        <!-- writing layered on top of the divs -->
+        <article class="landingWriting">
+            <h2>Random Article</h2>
+            <p>Lorem ipsum dolor sit amet consectetur, 
+                adipisicing elit. Error molestiae eos laboriosam id, 
+                nihil labore autem in illum ratione obcaecati quidem 
+                voluptatibus laborum libero minima,
+                distinctio nisi non, perspiciatis maiores.</p>
+        </article>
+        <!-- writing layered on top of the divs -->
+
+        
+
+
+        <!-- nav -->
+            <!-- shosh media icons -->
+            <!-- shosh media icons -->
+
+            <!-- actual nav menu -->
+            <!-- actual nav menu -->
+
+            <!-- wishlist and shopping cart button -->
+            <!-- wishlist and shopping cart button -->
+        <!-- nav -->
+
+
+        <!-- background div with matchin image to selected div -->
+        <!-- background div with matchin image to selected div -->
+
+
+        <!-- div with divs -->
+        <div class="lanDivs" >
+            <!-- divs themselves -->
+            <div class="landingDivs" >
+                <div class="image1" onclick="toggle()"><p>placeholder Div</p></div>
+                <div class="image2" onclick="toggle()"><p>placeholder Div</p></div>
+                <div class="image3" onclick="toggle()"><p>placeholder Div</p></div>
+                <div class="image4" onclick="toggle()"><p>placeholder Div</p></div>
+                <div class="image5" onclick="toggle()"><p>placeholder Div</p></div>
+                <div class="image6" onclick="toggle()"><p>placeholder Div</p></div>
+                <div class="image7" onclick="toggle()"><p>placeholder Div</p></div>
+                <div class="image8" onclick="toggle()"><p>placeholder Div</p></div>
+            </div>
+            <!-- divs themselves -->
+        </div>
+        <!-- section with divs -->
+    </div>
+    
+
+
+    <!-- Javascript -->
+    <script>
+        // script for the grab scroll top slider
+        const slider =document.querySelector('.landingDivs');
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        slider.addEventListener('mousedown', (e) => {
+            isDown = true;
+            slider.classList.add('active');
+            startX=e.pageX-slider.offsetLeft;
+            scrollLeft=slider.scrollLeft;
+        });
+        slider.addEventListener('mouseleave', () => {
+            isDown=false;
+            slider.classList.remove('active');
+
+        });
+        slider.addEventListener('mouseup', () => {
+            isDown=false;
+            slider.classList.remove('active');
+
+        });
+        slider.addEventListener('mousemove', (e) => {
+            if(!isDown) return;
+            e.preventDefault();
+            const x= e.pageX - slider.offsetLeft;
+            const walk = (x - startX)*3;
+            slider.scrollLeft = scrollLeft - walk;
+        });
+        // end of the grab scroll top slider
+
+        // for div to pop up when you click on landing divs
+            function toggle(){
+                var blur =document.getElementById('blur');
+                blur.classList.toggle('active');
+;                var popup =document.getElementById('popup');
+                popup.classList.toggle('active');
+            }
+        // end of div popup
+    </script>
+    <!-- <script>
+        var counter = 0;
+        const previous = document.getElementsByClassName('.prev');
+        const nextUp = document.getElementsByClassName('.next');
+
+        nextUp.addEventListener('click', ()=>{
+            counter++;
+            if(counter>2){counter=0;} 
+        });
+        previous.addEventListener('click', ()=>{
+            counter--;
+            if(counter<0){counter=0;} 
+        });
+    </script> -->
+
+<!-- <script type="text/javascript">
+    var counter =1;
+    setInterval(function(){
+        document.getElementById('radioButton' + counter).checked = true;
+        counter++;
+        if(counter>3){
+            counter = 1;
+        }
+    }, 5000); -->
+
+
+    <!-- /* var counter =1;
+
+    **function that increases counter by one when next is clicked on and decrements by 1 when prev is clicked on**
+    **attribute counter to slider margin position
+    
+    */
+    </script> -->
+    <!-- end of javascript -->
+</body>
+</html>
